@@ -92,6 +92,7 @@ document.getElementById("to_token_select").onclick = () => {
 document.getElementById("modal_close").onclick = closeModal;
 
 document.getElementById("from_amount").onblur = getPrice;
+
 async  function  getPrice(){
     console.log("Getting Price");
     // Only fetch price if from token, to token, and from token amount have been filled in 
@@ -108,6 +109,11 @@ async  function  getPrice(){
   const response = await fetch(
     `https://api.0x.org/swap/v1/price?${qs.stringify(params)}`
     );
-
+    // Await and parse the JSON response 
+    swapPriceJSON = await  response.json();
+    console.log("Price: ", swapPriceJSON);
+    // Use the returned values to populate the buy Amount and the estimated gas in the UI
+    document.getElementById("to_amount").value = swapPriceJSON.buyAmount / (10 ** currentTrade.to.decimals);
+    document.getElementById("gas_estimate").innerHTML = swapPriceJSON.estimatedGas;
     
 }
