@@ -147,3 +147,13 @@ async function getQuote(account){
   
     return swapQuoteJSON;
   }
+
+  async  function  trySwap(){
+    // The address, if any, of the most recently used account that the caller is permitted to access
+    let accounts = await ethereum.request({ method: "eth_accounts" });
+    let takerAddress = accounts[0];
+    // Log the the most recently used address in our MetaMask wallet
+    console.log("takerAddress: ", takerAddress);
+      // Pass this as the account param into getQuote() we built out earlier. This will return a JSON object trade order. 
+  const  swapQuoteJSON = await  getQuote(takerAddress);
+  }
