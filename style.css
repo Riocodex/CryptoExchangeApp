@@ -6,6 +6,11 @@
     border-radius: 20px;
     box-shadow: 0 0 5px black;
 }
+.modal-body{
+    height: 500px;
+    overflow: scroll;
+}
+
 .swapbox_select {
     width: 50%;
     float: left;
