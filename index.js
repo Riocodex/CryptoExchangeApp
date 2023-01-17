@@ -92,3 +92,11 @@ document.getElementById("to_token_select").onclick = () => {
 document.getElementById("modal_close").onclick = closeModal;
 
 document.getElementById("from_amount").onblur = getPrice;
+async  function  getPrice(){
+    console.log("Getting Price");
+    // Only fetch price if from token, to token, and from token amount have been filled in 
+    if (!currentTrade.from || !currentTrade.to || !document.getElementById("from_amount").value)  return;
+    // The amount is calculated from the smallest base unit of the token. We get this by multiplying the (from amount) x (10 to the power of the number of decimal places)
+    let  amount = Number(document.getElementById("from_amount").value * 10 ** currentTrade.from.decimals);
+    
+}
