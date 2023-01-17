@@ -161,9 +161,9 @@ async function trySwap(){
         console.log("tx: ", tx)
     });
 
-     // Perform the swap
-     const  receipt = await  web3.eth.sendTransaction(swapQuoteJSON);
-     console.log("receipt: ", receipt);
+    // Perform the swap
+    const receipt = await web3.eth.sendTransaction(swapQuoteJSON);
+    console.log("receipt: ", receipt);
 }
 
 init();
