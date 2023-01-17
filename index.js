@@ -28,3 +28,7 @@ document.getElementById("from_token_select").onclick = openModal;
 function  openModal(){
     document.getElementById("token_modal").style.display = "block";
 }
+document.getElementById("modal_close").onclick = closeModal;
+function  closeModal(){
+    document.getElementById("token_modal").style.display = "none";
+}
