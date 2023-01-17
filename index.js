@@ -23,3 +23,8 @@ async  function  connect() {
         }
     // Call the connect function when the login_button is clicked
     document.getElementById("login_button").onclick = connect;
+
+document.getElementById("from_token_select").onclick = openModal;
+function  openModal(){
+    document.getElementById("token_modal").style.display = "block";
+}
