@@ -1,4 +1,7 @@
 // index.js
+let  currentTrade = {};
+let  currentSelectSide;
+
 async function init() {
     await listAvailableTokens();
   }
@@ -22,6 +25,13 @@ async function init() {
           <span class="token_list_text">${tokens[i].symbol}</span>
           `;
         div.innerHTML = html;
+        parent.appendChild(div);
+
+        
+        // selectToken() will be called when a token is clicked
+        div.onclick = () => {
+          selectToken(tokens[i]);
+        };
         parent.appendChild(div);
     };
   }
@@ -56,3 +66,7 @@ async function init() {
     document.getElementById("login_button").onclick = connect;
     document.getElementById("from_token_select").onclick = openModal;
     document.getElementById("modal_close").onclick = closeModal;
+
+    document.getElementById("from_token_select").onclick = () => {
+        openModal("from");
+    };
