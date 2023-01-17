@@ -1,4 +1,4 @@
-
+const  qs = require('qs');
 let currentTrade = {};
 let currentSelectSide;
 let tokens;
@@ -91,3 +91,4 @@ document.getElementById("to_token_select").onclick = () => {
 };
 document.getElementById("modal_close").onclick = closeModal;
 
+document.getElementById("from_amount").onblur = getPrice;
