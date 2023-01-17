@@ -32,3 +32,19 @@ document.getElementById("modal_close").onclick = closeModal;
 function  closeModal(){
     document.getElementById("token_modal").style.display = "none";
 }
+
+async function init(){
+    console.log("initializing");
+    let response = await fetch('https://tokens.coingecko.com/uniswap/all.json');
+    let tokenListJSON = await response.json();
+    console.log("listing available tokens: ", tokenListJSON);
+}
+
+
+// Add init() call
+init();
+
+document.getElementById("login_button").onclick = connect;
+document.getElementById("from_token_select").onclick = openModal;
+document.getElementById("to_token_select").onclick = openModal;
+document.getElementById("modal_close").onclick = closeModal;
