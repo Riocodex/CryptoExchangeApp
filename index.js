@@ -98,5 +98,16 @@ async  function  getPrice(){
     if (!currentTrade.from || !currentTrade.to || !document.getElementById("from_amount").value)  return;
     // The amount is calculated from the smallest base unit of the token. We get this by multiplying the (from amount) x (10 to the power of the number of decimal places)
     let  amount = Number(document.getElementById("from_amount").value * 10 ** currentTrade.from.decimals);
+   
+    const params = {
+        sellToken: currentTrade.from.address,
+        buyToken: currentTrade.to.address,
+        sellAmount: amount,
+    }
+  // Fetch the swap price.
+  const response = await fetch(
+    `https://api.0x.org/swap/v1/price?${qs.stringify(params)}`
+    );
+
     
 }
